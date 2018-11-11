@@ -1,0 +1,11 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.active-list-item {
+    color: #d0d4dd !important; /* Note: You could also use a custom theme */
+}
+
+mat-nav-list {
+    display: flex;
+}
