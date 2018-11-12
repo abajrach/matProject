@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CatFactsService } from 'src/app/main/services/cat-facts.service';
+import { CatFact } from 'src/app/main/models/cat-facts/cat-facts.model';
 
 @Component({
   selector: 'app-cat-facts',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatFactsComponent implements OnInit {
 
-  constructor() { }
+  public catFacts: CatFact[];
+
+  constructor(private catFactsService: CatFactsService) { }
 
   ngOnInit() {
+    this.catFactsService.loadAllFacts()
+      .subscribe(data => {
+        this.catFacts = data;
+        // console.log(this.catFacts | json);
+      });
   }
 
 }
