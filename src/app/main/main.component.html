@@ -2,13 +2,16 @@
     <span>matProject</span>
     <span class="spacer"></span>
     <mat-nav-list>
-        <!-- <a mat-list-item routerLink="/dashboard" routerLinkActive="active-list-item">Home</a> -->
         <a mat-list-item routerLink="/dashboard" routerLinkActive="active-list-item" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
 
+      <a mat-list-item [matMenuTriggerFor]="stocksMenu" [class.active-list-item]="rlaStocks.isActive">Stocks</a>
+      <mat-menu #stocksMenu="matMenu">
+        <button mat-menu-item routerLink="/stocks/company" routerLinkActive #rlaStocks="routerLinkActive">Company facts</button>
+      </mat-menu>
 
-        <a mat-list-item [matMenuTriggerFor]="menu" [class.active-list-item]="rla.isActive">Misc</a>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/misc/cat-facts" routerLinkActive #rla="routerLinkActive">Cat Facts</button>
+        <a mat-list-item [matMenuTriggerFor]="miscMenu" [class.active-list-item]="rlaMisc.isActive">Misc</a>
+        <mat-menu #miscMenu="matMenu">
+            <button mat-menu-item routerLink="/misc/cat-facts" routerLinkActive #rlaMisc="routerLinkActive">Cat Facts</button>
         </mat-menu>
 
         <a mat-list-item routerLink="/about" routerLinkActive="active-list-item">About</a>
