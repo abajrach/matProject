@@ -1,3 +1,8 @@
-<p>
-  company works!
-</p>
+<div class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Stock Symbol" value="AAPL" #stockSymbol>
+  </mat-form-field>
+  <button mat-icon-button (click)="onSearch(stockSymbol.value)"><mat-icon>search</mat-icon></button>
+</div>
+
+<pre>{{company | json}}</pre>
