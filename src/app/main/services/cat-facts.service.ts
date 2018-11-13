@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CatFact } from '../models/cat-facts/cat-facts.model';
-import { map as _map } from 'lodash';
-import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CatFact } from '../models/cat-facts/cat-facts.model';
 
 @Injectable({
   providedIn: 'root'
