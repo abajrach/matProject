@@ -1,4 +1,4 @@
-<div class="example-form">
+<!-- <div class="example-form">
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Stock Symbol" value="AAPL" #stockSymbol>
   </mat-form-field>
@@ -10,4 +10,50 @@
 
 <div *ngFor="let item of financialDetails">
   <pre>{{ item | json }}</pre>
+</div> -->
+
+<div class="page">
+  <div class="left">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Stock Symbol" #stockSymbol>
+    </mat-form-field>
+    <button mat-icon-button (click)="onSearch(stockSymbol.value)"><mat-icon>search</mat-icon></button>
+  </div>
+
+  <div class="right">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Overview">
+        <app-overview [stockSymbol]="stockSymbolString"></app-overview>
+      </mat-tab>
+      <mat-tab label="Charts">
+        <app-charts></app-charts>
+      </mat-tab>
+      <mat-tab label="Third">Content 3</mat-tab>
+    </mat-tab-group>
+
+    <!-- <mat-tab-group mat-align-tabs="start">
+      <mat-tab *ngFor="let routeLink of routeLinks; let i = index;"
+        [routerLink]="routeLink.link"
+        (click)="activeLinkIndex = i"
+        [label]="routeLink.label"
+      >
+        <router-outlet></router-outlet>
+      </mat-tab>
+    </mat-tab-group> -->
+
+    <!-- <nav mat-tab-nav-bar>
+      <a mat-tab-link
+        *ngFor="let routeLink of routeLinks; let i = index;"
+        [routerLink]="routeLink.link"
+        routerLinkActive="mat-tab-link-active"
+        #rla="routerLinkActive"
+        [active]="activeLinkIndex === i"
+        (click)="activeLinkIndex = i"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+       {{routeLink.label}}
+      </a>
+    </nav> -->
+    
+  </div>
 </div>

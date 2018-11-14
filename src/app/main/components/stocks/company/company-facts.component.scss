@@ -9,5 +9,23 @@
 .example-full-width {
   //width: 100%;
   display: inline-block;
-  width: 500px;
+  // width: 500px;
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.page {
+
+  display: flex;
+  height: 100%;
+  
+  .left{
+    width: 15%;
+    // background-color: yellow;
+  }
+
+  .right {
+    width: 85%;
+    // background-color: blue;
+  }
 }

@@ -5,18 +5,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../../../shared/material.module';
 import { CompanyFactsComponent } from './company/company-facts.component';
 import { StocksComponent } from './stocks.component';
+import { OverviewComponent } from './company/overview/overview.component';
+import { ChartsComponent } from './company/charts/charts.component';
 
 const routes: Routes = [
   {path: '', component: StocksComponent,
     children: [
       {path: 'company', component: CompanyFactsComponent },
+      // {path: 'company/overview', component: OverviewComponent },
+      // {path: 'company/charts', component: ChartsComponent },
       {path: '', component: CompanyFactsComponent },
     ]},
   {path: '**', redirectTo: ''}
 ];
 
 @NgModule({
-  declarations: [StocksComponent, CompanyFactsComponent],
+  declarations: [StocksComponent, CompanyFactsComponent, OverviewComponent, ChartsComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

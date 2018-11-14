@@ -38,10 +38,7 @@ export class StocksService {
     return this.httpClient
       .get<FinancialDetails[]>(financialDetailsUrl)
       .pipe(
-        map((body) => <FinancialDetails[]> _map(body.financials, FinancialDetails.fromJSON))
+        map((body: any) => <FinancialDetails[]> _map(body.financials, FinancialDetails.fromJSON))
       );
-
-  // .map((body) => <Token[]> map(body.tokenList, Token.fromJSON))
-
   }
 }
