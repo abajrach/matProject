@@ -6,3 +6,8 @@
 </div>
 
 <pre>{{company | json}}</pre>
+<pre>{{delayedQuotes | json}}</pre>
+
+<div *ngFor="let item of financialDetails">
+  <pre>{{ item | json }}</pre>
+</div>

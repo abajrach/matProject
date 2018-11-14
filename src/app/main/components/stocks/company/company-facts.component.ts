@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from '../../../models/stocks/company.model';
+import { DelayedQuotes } from '../../../models/stocks/delayed-quotes.model';
+import { FinancialDetails } from '../../../models/stocks/financial-details.model';
 import { StocksService } from '../../../services/stocks.service';
 
 @Component({
@@ -10,6 +12,8 @@ import { StocksService } from '../../../services/stocks.service';
 export class CompanyFactsComponent implements OnInit {
 
   public company: Company;
+  public delayedQuotes: DelayedQuotes;
+  public financialDetails: FinancialDetails[] = [];
 
   constructor(private stocksService: StocksService) { }
 
@@ -17,11 +21,21 @@ export class CompanyFactsComponent implements OnInit {
   }
 
   public onSearch(stockSymbol: string) {
-    console.log('%c stockSymbol:', 'color: #bada55', stockSymbol);
     this.stocksService.getCompanyDetails(stockSymbol)
       .subscribe(data => {
         this.company = data;
-        console.log('%c data:', 'color: #bada55', this.company);
+      });
+
+    this.stocksService.getDelayedQuotes(stockSymbol)
+      .subscribe(data => {
+        this.delayedQuotes = data;
+      });
+
+    this.stocksService.getFinancialDetails(stockSymbol)
+      .subscribe(data => {
+        // this.delayedQuotes = data;
+        console.log('%c data:', 'color: #bada55', data);
+        this.financialDetails = data;
       });
   }
 
