@@ -7,6 +7,8 @@ import { CompanyFactsComponent } from './company/company-facts.component';
 import { StocksComponent } from './stocks.component';
 import { OverviewComponent } from './company/overview/overview.component';
 import { ChartsComponent } from './company/charts/charts.component';
+import { ChatService } from '../../services/chat.service';
+import { WebsocketService } from '../../services/websocket.service';
 
 const routes: Routes = [
   {path: '', component: StocksComponent,
@@ -26,6 +28,10 @@ const routes: Routes = [
     ReactiveFormsModule,
     MaterialModule,
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    ChatService,
+    WebsocketService
   ]
 })
 export class StocksModule { }

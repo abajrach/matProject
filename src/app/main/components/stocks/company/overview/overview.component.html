@@ -1,3 +1,4 @@
+<button (click)="sendMessage()">Send message</button>
 <div class="page" *ngIf="company && quote">
   <a href={{company.website}} target="_blank">{{ company.companyName}} &#40;{{ company.symbol }}&#41;</a>
   <span class="small"> {{ company.exchange }}</span>
