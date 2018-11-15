@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Company } from '../models/stocks/company.model';
 import { DelayedQuotes } from '../models/stocks/delayed-quotes.model';
 import { FinancialDetails } from '../models/stocks/financial-details.model';
+import { Quote } from '../models/stocks/quote.model';
 
 // export const LIST_COMPANY_DETAILS: TemplateExecutor = template('https://api.iextrading.com/1.0/stock/${stockSymbol}/company');
 // export const LIST_COMPANY_DETAILS = 'https://api.iextrading.com/1.0/stock/${stockSymbol}/company';
@@ -31,6 +32,13 @@ export class StocksService {
 
     return this.httpClient
       .get<DelayedQuotes>(delayedQuotesUrl);
+  }
+
+  public getQuote(stockSymbol: string): Observable<Quote> {
+    const delayedQuotesUrl = API_URL + `/stock/${stockSymbol}/quote`;
+
+    return this.httpClient
+      .get<Quote>(delayedQuotesUrl);
   }
 
   public getFinancialDetails(stockSymbol: string): Observable<FinancialDetails[]> {

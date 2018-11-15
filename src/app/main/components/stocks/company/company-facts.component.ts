@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class CompanyFactsComponent implements OnInit {
 
   public delayedQuotes: DelayedQuotes;
-  public financialDetails: FinancialDetails[] = [];
+  // public financialDetails: FinancialDetails[] = [];
 
   public stockSymbolString: string;
   // public routeLinks: any[];

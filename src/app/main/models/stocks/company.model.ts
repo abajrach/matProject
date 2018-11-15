@@ -6,8 +6,9 @@ export class Company {
   industry: string;
   website: string;
   description: string;
-  ceo: string;
+  CEO: string;
   issueType: string;
   sector: string;
   tags: string[];
+  nameAndSymbol: string = `${this.companyName}(${this.symbol})`;
 }

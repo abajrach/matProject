@@ -1,76 +1,74 @@
-<!-- <pre> {{ company | json }}</pre> -->
-
-<div class="page">
-  <a href="http://www.apple.com" target="_blank">Apple Inc. (AAPL)</a>
-  <span class="small">Nasdaq Global Select</span>
+<div class="page" *ngIf="company && quote">
+  <a href={{company.website}} target="_blank">{{ company.companyName}} &#40;{{ company.symbol }}&#41;</a>
+  <span class="small"> {{ company.exchange }}</span>
 
   <dl class="info">
     <dt>CEO</dt>
-    <dd>Timothy D. Cook</dd>
+    <dd>{{ company.CEO }}</dd>
 
     <dt>Industry</dt>
-    <dd>Computer Hardware</dd>
+    <dd>{{ company.industry }}</dd>
 
     <dt>Sector</dt>
-    <dd>Technology</dd>
+    <dd>{{ company.sector }}</dd>
 
     <dt>Description</dt>
-    <dd>Apple Inc is designs, manufactures and markets mobile communication and media devices and personal computers, and sells a variety of related software, services, accessories, networking solutions and third-party digital content and applications.</dd>
+    <dd>{{ company.description }}</dd>
     <mat-chip-list>
-      <mat-chip>Technology</mat-chip>
-      <mat-chip>Consumer Electronics</mat-chip>
-      <mat-chip>Computer Hardware</mat-chip>
+      <mat-chip *ngFor="let tag of company.tags">{{tag}}</mat-chip>
     </mat-chip-list>
   </dl>
 
   <div class="bottom-container">
     <div class="bottom-container-quotes">
         <div class="price-container">
-            <span class="latest-price">192.23</span>
+            <span class="latest-price">{{ quote.latestPrice }}</span>
             <span class="change negative">-1.94 (-1.00%)</span>
           </div>
           <span class="small">Latest</span>
         
           <span class="spacer"></span>
         
-          <span class="open-close-price">191.72</span>
+          <span class="open-close-price">{{ quote.open }}</span>
           <span class="small">At Open (Tuesday, November 13, 2018 8:30:00.827 AM)</span>
         
           <span class="spacer"></span>
         
-          <span class="open-close-price">192.23</span>
+          <span class="open-close-price">{{ quote.close }}</span>
           <span class="small">At Close (Tuesday, November 13, 2018 3:00:00.307 PM)</span>
     </div>
 
+     <!--Remove class-->
     <div class="bottom-container-table-1">
         <dl>
             <dt>High</dt>
-            <dd>999</dd>
+            <dd>{{ quote.high }}</dd>
             <mat-divider></mat-divider>
             <dt>Low</dt>
-            <dd>999</dd>      
+            <dd>{{ quote.low }}</dd>
             <mat-divider></mat-divider>
             <dt>Market Cap</dt>
-            <dd>999</dd>
+            <dd>{{ quote.marketCap }}</dd>
             <mat-divider></mat-divider>
             <dt>PE Ratio (TTM)</dt>
-            <dd>999</dd>
+            <dd>{{ quote.peRatio }}</dd>
           </dl>
     </div>
 
+    <!--Remove class-->
     <div class="bottom-container-table-2">
         <dl>
             <dt>YTD Yield</dt>
-            <dd>999</dd>
+            <dd>{{ quote.ytdChange }}</dd>
             <mat-divider></mat-divider>
             <dt>Latest Volume</dt>
-            <dd>999</dd>      
+            <dd>{{ quote.latestVolume }}</dd>
             <mat-divider></mat-divider>
             <dt>52 Week High</dt>
-            <dd>999</dd>
+            <dd>{{ quote.week52High }}</dd>
             <mat-divider></mat-divider>
             <dt>52 Week low</dt>
-            <dd>999</dd>
+            <dd>{{ quote.week52Low }}</dd>
           </dl>
     </div>
   </div>
